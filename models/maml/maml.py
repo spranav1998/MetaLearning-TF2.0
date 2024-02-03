@@ -129,12 +129,12 @@ class ModelAgnosticMetaLearningModel(BaseModel):
 
         for variable in self.model.variables:
             references = self.extract_variable_reference_from_variable_name(variable.name)
-            layer_names = references[:-1]
+            layer_names = references[1]
             attr = references[-1]
 
             model_layer = model
             updated_model_layer = updated_model
-            for layer_name in layer_names:
+            for layer_name in [layer_names]:
                 model_layer = model_layer.get_layer(layer_name)
                 updated_model_layer = updated_model_layer.get_layer(layer_name)
 
